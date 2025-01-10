@@ -1,0 +1,27 @@
+id: ca3c0ec6-eceb-4db0-8ca9-b12eea4f491c
+Function:
+  Title: Parser for ContrastADR
+  Version: '1.0.0'
+  LastUpdated: '2023-08-23'
+Description: This file is to parse the data from Contrast ADR platform
+Category: Microsoft Sentinel Parser
+FunctionName: ContrastADR
+FunctionAlias: ContrastADR
+FunctionQuery: Contrast_ADR1_CL
+    |project
+    EventUid = eventUuid_g,
+    IpAddr = SourceIP,
+    EventSeverity = severity_s,
+    EventResult = result_s,
+    Rule = ruleUuid_s,
+    DvcId = application_id_s,
+    Dvc = application_name_s,
+    DvcInterface = server_id_s,
+    DvcHostname = server_name_s,
+    DvcDescription = environment_s,
+    ThreatFirstReportedTime = detectedTime_t,
+    Url = url_s,
+    AlertName = attackValue_s,
+    AlertVerdict = attackPayload_attackerInput_confirmedAttack_b,
+    AttackTactics = server_name_s,
+    FilePath = attackPayload_attackerInput_documentPath_s

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "Workspace": {
+      "type": "string",
+      "metadata": {
+        "description": "The Microsoft Sentinel workspace into which the function will be deployed. Has to be in the selected Resource Group."
+      }
+    },
+    "WorkspaceRegion": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "The region of the selected workspace. The default value will use the Region selection above."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+      "apiVersion": "2020-08-01",
+      "name": "[concat(parameters('Workspace'), '/ContrastADR')]",
+      "location": "[parameters('WorkspaceRegion')]",
+      "properties": {
+        "etag": "*",
+        "displayName": "Parser for ContrastADR",
+        "category": "Microsoft Sentinel Parser",
+        "FunctionAlias": "ContrastADR",
+        "query": "Contrast_ADR1_CL |project EventUid = eventUuid_g, IpAddr = SourceIP, EventSeverity = severity_s, EventResult = result_s, Rule = ruleUuid_s, DvcId = application_id_s, Dvc = application_name_s, DvcInterface = server_id_s, DvcHostname = server_name_s, DvcDescription = environment_s, ThreatFirstReportedTime = detectedTime_t, Url = url_s, AlertName = attackValue_s, AlertVerdict = attackPayload_attackerInput_confirmedAttack_b, AttackTactics = server_name_s, FilePath = attackPayload_attackerInput_documentPath_s",
+        "version": 1
+      }
+    }
+  ]
+}
