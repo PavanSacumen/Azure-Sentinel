@@ -1,0 +1,22 @@
+{
+  "Name": "Contrast Security",
+  "Author": "Contrast Security",
+  "Logo": "",
+  "Description": "The [Contrast Security](https://www.contrastsecurity.com/contrast-adr) solution for Microsoft Sentinel enables you to ingest [Contrast Security events] generated using the Contrast Webhook ,",
+  "WorkbookBladeDescription": "",
+  "AnalyticalRuleBladeDescription": "",
+  "HuntingQueryBladeDescription": "",
+  "PlaybooksBladeDescription": "",
+  "Data Connectors": [
+    "Solutions/DataConnectors/ContrastADR/ContrastADR_FunctionApp.json"
+  ],
+  "Parsers": [
+    "Solutions/ContrastADR/Parsers/SolutionMetadata.json"
+  ],
+  "Workbooks": [],
+  "BasePath": "/PycharmProjects/azure_sentinel/Azure-Sentinel",
+  "Version": "1.0.0",
+  "Metadata": "SolutionMetadata.json",
+  "TemplateSpec": true,
+  "StaticDataConnectorIds": []
+}
