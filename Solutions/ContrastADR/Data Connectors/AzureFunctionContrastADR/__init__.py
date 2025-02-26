@@ -125,7 +125,7 @@ class ADRHandler:
 
     def __init__(self, req_body):
         self.req_body = req_body
-        self.base_url = "https://2261-202-83-16-231.ngrok-free.app"
+        self.base_url = "https://teamserver-scantest.contsec.com"
         self.endpoint_template = "/api/v4/organizations/{org_uuid}/applications/{app_uuid}/attack-events/{event_uuid}"
         self.excluded_fields = [
             field.strip()

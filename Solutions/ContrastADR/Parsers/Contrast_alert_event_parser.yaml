@@ -7,7 +7,7 @@ Description: This file is to parse the data from Contrast ADR platform
 Category: Microsoft Sentinel Parser
 FunctionName: ContrastADR
 FunctionAlias: ContrastADR
-FunctionQuery: Contrast_ADR_CL
+FunctionQuery: ContrastADR_CL
     |project
     EventUid = eventUuid_g,
     IpAddr = sourceIp_string_s,
